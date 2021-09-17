@@ -1,20 +1,29 @@
 package com.arezoo.fliptimerview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.arezoo.fliptimerview.databinding.ActivityMainBinding
 import com.arezoo.fliptimerview.fliptimer.CounterDownCallback
-import com.arezoo.fliptimerview.fliptimer.FlipTimerView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initFlipTimer()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.flipTimerView.resetCountdownTimer()
+    }
+
     private fun initFlipTimer() {
-        findViewById<FlipTimerView>(R.id.flipTimerView).apply {
+        binding.flipTimerView.apply {
             startCountDown(REMAINING_TIME_MILLI,
                 object : CounterDownCallback {
                     override fun countdownAboutToFinish() {
