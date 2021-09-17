@@ -5,4 +5,16 @@
         <attr name="alignment" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="FlipTimerView">
+        <attr name="digitTopDrawable" format="integer"/>
+        <attr name="digitBottomDrawable" format="integer"/>
+        <attr name="digitTextColor" format="color"/>
+        <attr name="halfDigitHeight" format="dimension"/>
+        <attr name="digitWidth" format="dimension"/>
+        <attr name="digitTextSize" format="dimension"/>
+        <attr name="digitPadding" format="dimension"/>
+        <attr name="animationDuration" format="integer"/>
+        <attr name="countdownTickInterval" format="integer"/>
+    </declare-styleable>
+
 </resources>

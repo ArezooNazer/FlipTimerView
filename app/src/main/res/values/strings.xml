@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">FlipTimerView</string>
     <string name="zero">0</string>
+    <string name="days">Days</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
+    <string name="colon_divider">:</string>
 </resources>

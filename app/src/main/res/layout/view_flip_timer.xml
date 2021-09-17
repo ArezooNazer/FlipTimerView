@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+        android:id="@+id/digitDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/dayTextView"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/colonDivider1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:layout_height="22dp"
+        tools:layout_width="36dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/digitDays"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/days"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/label_font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/digitDays"
+        app:layout_constraintRight_toRightOf="@id/digitDays"
+        app:layout_constraintTop_toBottomOf="@id/digitDays" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/colonDivider1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:text="@string/colon_divider"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/title_font_size"
+        app:layout_constraintBottom_toBottomOf="@id/digitDays"
+        app:layout_constraintLeft_toRightOf="@id/digitDays"
+        app:layout_constraintRight_toLeftOf="@id/digitHours"
+        app:layout_constraintTop_toTopOf="@id/digitDays" />
+
+    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+        android:id="@+id/digitHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/hourTextView"
+        app:layout_constraintLeft_toRightOf="@id/colonDivider1"
+        app:layout_constraintRight_toLeftOf="@id/colonDivider2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:layout_height="22dp"
+        tools:layout_width="36dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/hourTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/digitHours"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/hours"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/label_font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/digitHours"
+        app:layout_constraintStart_toStartOf="@id/digitHours"
+        app:layout_constraintTop_toBottomOf="@id/digitHours" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/colonDivider2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:text="@string/colon_divider"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/title_font_size"
+        app:layout_constraintBottom_toBottomOf="@id/digitHours"
+        app:layout_constraintLeft_toRightOf="@id/digitHours"
+        app:layout_constraintRight_toLeftOf="@id/digitMinute"
+        app:layout_constraintTop_toTopOf="@id/digitHours" />
+
+    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+        android:id="@+id/digitMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/minuteTextView"
+        app:layout_constraintLeft_toRightOf="@id/colonDivider2"
+        app:layout_constraintRight_toLeftOf="@id/colonDivider3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:layout_height="22dp"
+        tools:layout_width="36dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/minuteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/digitMinute"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/minutes"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/label_font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/digitMinute"
+        app:layout_constraintStart_toStartOf="@id/digitMinute"
+        app:layout_constraintTop_toBottomOf="@id/digitMinute" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/colonDivider3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/default_margin"
+        android:text="@string/colon_divider"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/title_font_size"
+        app:layout_constraintBottom_toBottomOf="@id/digitMinute"
+        app:layout_constraintLeft_toRightOf="@id/digitMinute"
+        app:layout_constraintRight_toLeftOf="@id/digitSecond"
+        app:layout_constraintTop_toTopOf="@id/digitMinute" />
+
+    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+        android:id="@+id/digitSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/secondTextView"
+        app:layout_constraintLeft_toRightOf="@id/colonDivider3"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:layout_height="22dp"
+        tools:layout_width="36dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/secondTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/digitSecond"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/seconds"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/label_font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/digitSecond"
+        app:layout_constraintStart_toStartOf="@id/digitSecond"
+        app:layout_constraintTop_toBottomOf="@id/digitSecond" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
