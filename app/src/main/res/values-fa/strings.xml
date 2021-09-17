@@ -1,0 +1,7 @@
+<resources>
+    <string name="zero">۰</string>
+    <string name="days">روز</string>
+    <string name="hours">ساعت</string>
+    <string name="minutes">دقیقه</string>
+    <string name="seconds">ثانیه</string>
+</resources>
