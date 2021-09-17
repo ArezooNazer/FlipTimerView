@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FlipTimerTextView">
+        <attr name="alignment" format="integer" />
+    </declare-styleable>
+
+</resources>
