@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:alignedtextview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/backUpper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+                android:id="@+id/backUpperText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:text="@string/zero"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/title_font_size"
+                alignedtextview:alignment="2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/backLower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+                android:id="@+id/backLowerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:text="@string/zero"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/title_font_size"
+                alignedtextview:alignment="1" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/frontUpper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+                android:id="@+id/frontUpperText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:text="@string/zero"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/title_font_size"
+                alignedtextview:alignment="2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frontLower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+                android:id="@+id/frontLowerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:text="@string/zero"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/title_font_size"
+                alignedtextview:alignment="1" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>
