@@ -1,6 +1,8 @@
 package com.arezoo.fliptimerview
 
 import android.os.Bundle
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
 import com.arezoo.fliptimerview.databinding.ActivityMainBinding
 import com.arezoo.fliptimerview.fliptimer.CounterDownCallback
@@ -31,7 +33,11 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun countdownFinished() {
-                        TODO("Not yet implemented")
+                        Toast.makeText(
+                            this@MainActivity,
+                            "time is finished",
+                            LENGTH_LONG
+                        ).show()
                     }
                 })
         }
@@ -39,6 +45,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
 
-        private const val REMAINING_TIME_MILLI = 720000L
+        private const val REMAINING_TIME_MILLI = 99999999L
     }
 }
