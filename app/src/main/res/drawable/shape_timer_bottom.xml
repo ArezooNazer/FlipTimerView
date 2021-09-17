@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:topRightRadius="0dp"
+        android:topLeftRadius="0dp"
+        android:bottomLeftRadius="@dimen/default_corner_radius"
+        android:bottomRightRadius="@dimen/default_corner_radius"/>
+
+    <solid android:color="@color/flip_timer_bottom_background"/>
+</shape>

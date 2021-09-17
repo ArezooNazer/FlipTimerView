@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="text_color">@color/white</color>
+
+    <color name="flip_timer_top_background">#303030</color>
+    <color name="flip_timer_bottom_background">#212121</color>
 </resources>
