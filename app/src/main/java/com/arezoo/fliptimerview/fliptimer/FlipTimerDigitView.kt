@@ -10,6 +10,8 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import com.arezoo.fliptimerview.R
+import com.arezoo.fliptimerview.util.persianDigitsIfPersian
+import java.util.*
 
 class FlipTimerDigitView @JvmOverloads constructor(
     context: Context,
@@ -31,6 +33,8 @@ class FlipTimerDigitView @JvmOverloads constructor(
     private val backUpperText: FlipTimerTextView
     private val backLowerText: FlipTimerTextView
 
+    private var locale = Locale.getDefault()
+
     init {
         inflate(context, R.layout.view_flip_timer_digit, this).also {
             frontUpper = findViewById(R.id.frontUpper)
@@ -50,6 +54,10 @@ class FlipTimerDigitView @JvmOverloads constructor(
         frontLowerText.measure(0, 0)
         backUpperText.measure(0, 0)
         backLowerText.measure(0, 0)
+    }
+
+    fun setLocale(locale: Locale) {
+        this.locale = locale
     }
 
     fun setUpperDigitBackground(digitTopDrawable: Drawable) {
@@ -95,10 +103,10 @@ class FlipTimerDigitView @JvmOverloads constructor(
         frontUpper.clearAnimation()
         frontLower.clearAnimation()
 
-        frontUpperText.text = newText
-        frontLowerText.text = newText
-        backUpperText.text = newText
-        backLowerText.text = newText
+        frontUpperText.text = newText.persianDigitsIfPersian(locale)
+        frontLowerText.text = newText.persianDigitsIfPersian(locale)
+        backUpperText.text = newText.persianDigitsIfPersian(locale)
+        backLowerText.text = newText.persianDigitsIfPersian(locale)
     }
 
     fun animateTextChange(newText: String) {
@@ -127,16 +135,17 @@ class FlipTimerDigitView @JvmOverloads constructor(
     }
 
     private fun animateDigit() {
-        frontUpperText.text = backUpperText.text.toString()
+        frontUpperText.text = backUpperText.text.toString().persianDigitsIfPersian(locale)
         frontUpper.rotationX = 0f
         frontLower.rotationX = ROTATE_90_DEGREE
-        frontLowerText.text = backUpperText.text.toString()
+        frontLowerText.text = backUpperText.text.toString().persianDigitsIfPersian(locale)
         frontLower.animate()
             .setDuration(getHalfOfAnimationDuration())
             .rotationX(0f)
             .setInterpolator(DecelerateInterpolator())
             .withEndAction {
                 backLowerText.text = frontLowerText.text.toString()
+                    .persianDigitsIfPersian(locale)
             }.start()
     }
 
