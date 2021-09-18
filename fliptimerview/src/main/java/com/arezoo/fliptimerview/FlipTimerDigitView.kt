@@ -1,4 +1,4 @@
-package com.arezoo.fliptimerview.fliptimer
+package com.arezoo.fliptimerview
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -9,7 +9,6 @@ import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
-import com.arezoo.fliptimerview.R
 import com.arezoo.fliptimerview.util.persianDigitsIfPersian
 import java.util.*
 

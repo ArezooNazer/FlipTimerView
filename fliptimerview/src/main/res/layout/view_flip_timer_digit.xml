@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+            <com.arezoo.fliptimerview.FlipTimerTextView
                 android:id="@+id/backUpperText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+            <com.arezoo.fliptimerview.FlipTimerTextView
                 android:id="@+id/backLowerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+            <com.arezoo.fliptimerview.FlipTimerTextView
                 android:id="@+id/frontUpperText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.arezoo.fliptimerview.fliptimer.FlipTimerTextView
+            <com.arezoo.fliptimerview.FlipTimerTextView
                 android:id="@+id/frontLowerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

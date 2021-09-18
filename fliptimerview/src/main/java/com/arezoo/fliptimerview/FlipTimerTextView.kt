@@ -1,4 +1,4 @@
-package com.arezoo.fliptimerview.fliptimer
+package com.arezoo.fliptimerview
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,7 +7,6 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.Log
 import androidx.appcompat.widget.AppCompatTextView
-import com.arezoo.fliptimerview.R
 
 class FlipTimerTextView @JvmOverloads constructor(
     context: Context,

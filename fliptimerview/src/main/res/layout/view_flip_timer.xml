@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center">
 
-    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+    <com.arezoo.fliptimerview.FlipTimerDigitView
         android:id="@+id/digitDays"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         app:layout_constraintRight_toLeftOf="@id/digitHours"
         app:layout_constraintTop_toTopOf="@id/digitDays" />
 
-    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+    <com.arezoo.fliptimerview.FlipTimerDigitView
         android:id="@+id/digitHours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
         app:layout_constraintRight_toLeftOf="@id/digitMinute"
         app:layout_constraintTop_toTopOf="@id/digitHours" />
 
-    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+    <com.arezoo.fliptimerview.FlipTimerDigitView
         android:id="@+id/digitMinute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
         app:layout_constraintRight_toLeftOf="@id/digitSecond"
         app:layout_constraintTop_toTopOf="@id/digitMinute" />
 
-    <com.arezoo.fliptimerview.fliptimer.FlipTimerDigitView
+    <com.arezoo.fliptimerview.FlipTimerDigitView
         android:id="@+id/digitSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.arezoo.fliptimerview.fliptimer
+package com.arezoo.fliptimerview
 
 interface CounterDownCallback {
 

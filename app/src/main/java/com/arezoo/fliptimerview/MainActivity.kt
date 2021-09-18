@@ -5,7 +5,7 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
 import com.arezoo.fliptimerview.databinding.ActivityMainBinding
-import com.arezoo.fliptimerview.fliptimer.CounterDownCallback
+import com.arezoo.fliptimerview.CounterDownCallback
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun initFlipTimer() {
         binding.flipTimerView.apply {
             startCountDown(REMAINING_TIME_MILLI,
-                object : CounterDownCallback {
+                object : com.arezoo.fliptimerview.CounterDownCallback {
                     override fun countdownAboutToFinish() {
                         super.countdownAboutToFinish()
                     }
