@@ -1,3 +1,2 @@
 rootProject.name = "FlipTimerView"
-include ':app'
 include ':fliptimerview'
