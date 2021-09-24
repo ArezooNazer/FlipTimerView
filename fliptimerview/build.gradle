@@ -46,7 +46,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.arezoo.fliptimerview'
                 artifactId = 'fliptimerview'
-                version = '1.0.0'
+                version = 'v1.0.0'
             }
         }
     }
