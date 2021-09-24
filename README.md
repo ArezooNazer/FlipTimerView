@@ -23,7 +23,7 @@ Step 2. Add the dependency
 
 ```
 dependencies {
-	     implementation 'com.github.ArezooNazer:FlipTimerView:1.0.0'
+	     implementation 'com.github.ArezooNazer:FlipTimerView:v1.0.0'
 }
 ```
 
