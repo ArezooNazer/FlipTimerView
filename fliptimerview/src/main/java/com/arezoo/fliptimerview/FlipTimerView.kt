@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import java.util.concurrent.*
+import java.util.concurrent.TimeUnit
 
 class FlipTimerView @JvmOverloads constructor(
     context: Context,
@@ -17,10 +17,7 @@ class FlipTimerView @JvmOverloads constructor(
     private var counterDownHelper: CounterDownHelper? = null
     private var countdownTickInterval = COUNTER_DOWN_INTERVAL
 
-    private val digitDays: FlipTimerDigitView
-    private val digitHours: FlipTimerDigitView
-    private val digitMinute: FlipTimerDigitView
-    private val digitSecond: FlipTimerDigitView
+    private val digits = mutableListOf<FlipTimerDigitView>()
 
     private val doubleZero: String
         get() {
@@ -30,11 +27,12 @@ class FlipTimerView @JvmOverloads constructor(
 
     init {
         View.inflate(context, R.layout.view_flip_timer, this).also {
-            digitDays = findViewById(R.id.digitDays)
-            digitHours = findViewById(R.id.digitHours)
-            digitMinute = findViewById(R.id.digitMinute)
-            digitSecond = findViewById(R.id.digitSecond)
+            digits.add(DAY_INDEX, findViewById(R.id.digitDays))
+            digits.add(HOUR_INDEX, findViewById(R.id.digitHours))
+            digits.add(MINUTE_INDEX, findViewById(R.id.digitMinute))
+            digits.add(SECOND_INDEX, findViewById(R.id.digitSecond))
         }
+
 
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(
@@ -120,10 +118,7 @@ class FlipTimerView @JvmOverloads constructor(
 
     fun resetCountdownTimer() {
         counterDownHelper?.resetCountdownTimer()
-        digitDays.setNewText(doubleZero)
-        digitHours.setNewText(doubleZero)
-        digitMinute.setNewText(doubleZero)
-        digitSecond.setNewText(doubleZero)
+        doOnTimerDigits { setNewText(doubleZero) }
     }
 
     private fun setCountDownTime(timeToStart: Long) {
@@ -146,10 +141,7 @@ class FlipTimerView @JvmOverloads constructor(
             )
         )
 
-        digitDays.animateTextChange(getDisplayTimeString(days.toString()))
-        digitHours.animateTextChange(getDisplayTimeString(hours.toString()))
-        digitMinute.animateTextChange(getDisplayTimeString(minutes.toString()))
-        digitSecond.animateTextChange(getDisplayTimeString(seconds.toString()))
+        doOnTimerDigits { animateTextChange(getDisplayTimeString(seconds.toString())) }
     }
 
     private fun getDisplayTimeString(timeValue: String): String {
@@ -165,10 +157,7 @@ class FlipTimerView @JvmOverloads constructor(
             setTransparentBackgroundColor()
             return
         }
-        digitDays.setUpperDigitBackground(digitTopDrawable)
-        digitHours.setUpperDigitBackground(digitTopDrawable)
-        digitMinute.setUpperDigitBackground(digitTopDrawable)
-        digitSecond.setUpperDigitBackground(digitTopDrawable)
+        doOnTimerDigits { setUpperDigitBackground(digitTopDrawable) }
     }
 
     private fun setDigitBottomDrawable(digitBottomDrawable: Drawable?) {
@@ -176,17 +165,11 @@ class FlipTimerView @JvmOverloads constructor(
             setTransparentBackgroundColor()
             return
         }
-        digitDays.setBottomDigitBackground(digitBottomDrawable)
-        digitHours.setBottomDigitBackground(digitBottomDrawable)
-        digitMinute.setBottomDigitBackground(digitBottomDrawable)
-        digitSecond.setBottomDigitBackground(digitBottomDrawable)
+        doOnTimerDigits { setBottomDigitBackground(digitBottomDrawable) }
     }
 
     private fun setDigitPadding(digitPadding: Int) {
-        digitDays.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        digitHours.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        digitMinute.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        digitSecond.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
+        doOnTimerDigits { setPadding(digitPadding, digitPadding, digitPadding, digitPadding) }
     }
 
     private fun setDigitTextColor(digitsTextColor: Int) {
@@ -195,44 +178,39 @@ class FlipTimerView @JvmOverloads constructor(
             textColor = ContextCompat.getColor(context, R.color.transparent)
         }
 
-        digitDays.setDigitTextColor(textColor)
-        digitHours.setDigitTextColor(textColor)
-        digitMinute.setDigitTextColor(textColor)
-        digitSecond.setDigitTextColor(textColor)
+        doOnTimerDigits { setDigitTextColor(textColor) }
     }
 
     private fun setDigitTextSize(digitsTextSize: Float) {
-        digitDays.setDigitTextSize(digitsTextSize)
-        digitHours.setDigitTextSize(digitsTextSize)
-        digitMinute.setDigitTextSize(digitsTextSize)
-        digitSecond.setDigitTextSize(digitsTextSize)
+        doOnTimerDigits { setDigitTextSize(digitsTextSize) }
     }
 
     private fun setHalfDigitHeightAndDigitWidth(halfDigitHeight: Int, digitWidth: Int) {
-        digitDays.setDigitViewSize(digitWidth, halfDigitHeight)
-        digitHours.setDigitViewSize(digitWidth, halfDigitHeight)
-        digitMinute.setDigitViewSize(digitWidth, halfDigitHeight)
-        digitSecond.setDigitViewSize(digitWidth, halfDigitHeight)
+        doOnTimerDigits { setDigitViewSize(digitWidth, halfDigitHeight) }
     }
 
     private fun setAnimationDuration(animationDuration: Long) {
-        digitDays.setAnimationDuration(animationDuration)
-        digitHours.setAnimationDuration(animationDuration)
-        digitMinute.setAnimationDuration(animationDuration)
-        digitSecond.setAnimationDuration(animationDuration)
+        doOnTimerDigits { setAnimationDuration(animationDuration) }
     }
 
     private fun setTransparentBackgroundColor() {
-        digitDays.removeDigitBackground()
-        digitHours.removeDigitBackground()
-        digitMinute.removeDigitBackground()
-        digitSecond.removeDigitBackground()
+        doOnTimerDigits { removeDigitBackground() }
     }
+
+    private fun doOnTimerDigits(action: FlipTimerDigitView.() -> Unit) {
+        digits.forEach { digit -> digit.action() }
+    }
+
 
     companion object {
 
         private const val COUNTER_DOWN_INTERVAL = 1000
         private const val ANIMATION_DEFAULT_DURATION = 600
         private const val ZERO_STRING = "0"
+        private const val DAY_INDEX = 0
+        private const val HOUR_INDEX = 1
+        private const val MINUTE_INDEX = 2
+        private const val SECOND_INDEX = 3
     }
+
 }
